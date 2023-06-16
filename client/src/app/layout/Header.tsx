@@ -10,7 +10,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 interface Props {
   darkMood: boolean;
@@ -30,7 +30,7 @@ const rightLinks = [
 
 const navStyles = {
   color: "inherit",
-  textDecoration: 'none',
+  textDecoration: "none",
   typography: "h6",
   "&:hover": {
     color: "grey.500",
@@ -50,7 +50,7 @@ export default function Header({ darkMood, handleThemeChange }: Props) {
           alignItems: "center",
         }}
       >
-        <Box display='flex' alignItems='center'>
+        <Box display="flex" alignItems="center">
           <Typography variant="h6" component={NavLink} to="/" sx={navStyles}>
             RE-STORE
           </Typography>
@@ -66,8 +66,14 @@ export default function Header({ darkMood, handleThemeChange }: Props) {
           ))}
         </List>
 
-        <Box display='flex' alignItems='center'>
-          <IconButton size="large" edge="start" sx={{ mr: 2 }}>
+        <Box display="flex" alignItems="center">
+          <IconButton
+            component={Link}
+            to="/basket"
+            size="large"
+            edge="start"
+            sx={{ mr: 2 }}
+          >
             <Badge badgeContent="4" color="secondary">
               <ShoppingCart />
             </Badge>
